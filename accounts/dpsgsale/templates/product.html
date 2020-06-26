@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %} {% endblock %}
+
+
+{% block content %}
+{% include 'menus.html' %}
+<div  id="content" name="content">
+    <div class="">
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div>
+            <div class="topnav">
+            <table border="0" width="100%" >
+                <tr>
+                    <td width="90%">&nbsp; User <b>{{user.username}}{{username}}</b> is logged in successfully </td>
+                    <td align="right"><!--<input type="submit" value="Logout">-->
+                    <a href="{% url 'logout' %}">Logout</a></td>
+                </tr>
+            </table>
+            </div><br>
+
+            <div class="main">
+                <div class="topline">&nbsp;&nbsp;Product Form</div><br>
+                <table border="0" width="100%">
+                    <tr>
+                        <td width="20%">&nbsp;</td>
+                        <td width="20%"><label>User Name :</label></td>
+                        <td><input type="text" size="30" name="u_name" id="uname" value="{{userdata.username}}">
+                            <input type="text" size="10" name="u_id" id="uid" value="{{userdata.id}}"></td>
+                    </tr>
+                    <tr>
+                        <td width="20%">&nbsp;</td>
+                        <td width="20%"><label>First Name :</label></td>
+                        <td><input type="text" size="30" name="fname" id="fname" value="{{userdata.first_name}}"></td>
+                    </tr>
+                    <tr>
+                        <td width="20%">&nbsp;</td>
+                        <td width="20%"><label>Last Name :</label></td>
+                        <td><input type="text" size="30" name="lname" id="lname" value="{{userdata.last_name}}"></td>
+                    </tr>
+                    <tr>
+                        <td width="20%">&nbsp;</td>
+                        <td width="20%"><label>Class :</label></td>
+                        <td>{{ form.class_name }}</td>
+                    </tr>
+                    <tr>
+                        <td width="20%">&nbsp;</td>
+                        <td width="20%"><label>Mobile Number :</label></td>
+                        <td>{{ form.mobile }}</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><label>Price :</label></td>
+                        <td>{{form.price}}</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><label>Image :</label></td>
+                        <td>{{form.images}}</td>
+                    </tr>
+                        <tr><td colspan="3">&nbsp;</td></tr>
+                    <tr>
+                        <td>&nbsp; </td>
+                        <td><label> </label></td>
+                        <td ><input type="submit" class="btn btn-primary"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+
+
+{% endblock %}

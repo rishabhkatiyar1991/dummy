@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>-->
+{% block content %}
+    <form method="post" action="{% url 'aclogin' %}">
+        {% csrf_token %}
+        <h1>{{ amt_date }}</h1>
+        <table>
+            <tr>
+                <td><label>my Username: </label></td>
+                <td><input type="text" name="username" id="username"></td>
+            </tr>
+            <tr>
+                <td><label>Password:</label></td>
+                <td><input type="password" name="password" id="password"></td>
+            </tr>
+
+            <p>{{error}}</p>
+        </table>
+
+        <!--<input type='text' name="next" value="{{ request.GET.next }}">-->
+        <button type="submit">Login</button>
+        <!--<input type="hidden" name="next" value="{{next}}" />-->
+    </form>
+{% endblock %}
+<!--</body>
+</html>-->
+

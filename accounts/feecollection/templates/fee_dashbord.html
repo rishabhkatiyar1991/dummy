@@ -1,0 +1,44 @@
+
+{% extends 'fee_base.html' %}
+
+{% block titele %} {% endblock %}
+
+
+{% block content %}
+
+{% include 'fee_menu.html' %}
+<div  id="content" name="content">
+    <div class="">
+
+        <div>
+            <div class="topnav">
+            <table border="0" width="100%" >
+                <tr>
+                    <td width="90%">&nbsp; User <b></b> is logged in successfully </td>
+                    <td align="right"><!--<input type="submit" value="Logout">{{user.username}}{{username}}-->
+                    <a href="{% url 'fee_logout' %}">Logout</a> </td>
+                </tr>
+            </table>
+            </div><br>
+            {% if request.user.is_authenticate %}
+            <form method="post" action="{% url 'feefinddate' %}">
+            {% csrf_token %}
+            <div class="main">
+                <div class="topline">&nbsp;&nbsp;</div><br>
+                Dashbord
+
+                <table>
+            <tr>
+                <td><label>date: </label></td>
+                <td><input type="text" name="feefinddate" id="feefinddate"></td>
+            </tr>
+        </table>
+                <button type="submit">Submit</button>
+            </div>
+    </form>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+
+{% block titele %} {% endblock %}
+
+
+{% block content %}
+
+{% include 'menu.html' %}
+<div  id="content" name="content">
+    <div class="">
+    <form method="post">
+    {% csrf_token %}
+        <div>
+            <div class="topnav">
+            <table border="0" width="100%" >
+                <tr>
+                    <td width="90%">&nbsp; User <b></b> is logged in successfully </td>
+                    <td align="right"><!--<input type="submit" value="Logout">{{user.username}}{{username}}-->
+                    <a href="{% url 'logout' %}">Logout</a> </td>
+                </tr>
+            </table>
+            </div><br>
+
+            <div class="main">
+                <div class="topline">&nbsp;&nbsp;aclogin</div><br>
+                Dashbord
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dpsgcss/style.css' %}">
+</head>
+<body  style="background-image: url({% static 'image/dpsgsales.jpg' %}); ">
+
+<!--{% block title %}  {% endblock %}-->
+
+<!--{% block content %}-->
+ <div align="center" style="margin-top: 210px;" >
+
+
+    <form method="post" action="">
+        {% csrf_token %}<br>
+
+        <h1>{{ amt_date }}</h1>
+        <table>
+            <tr>
+                <td><label> Username: </label></td>
+                <td><input type="text" name="username" id="username"></td>
+            </tr>
+            <tr>
+                <td><label>Password:</label></td>
+                <td><input type="password" name="password" id="password"></td>
+            </tr>
+
+            <p>{{error}}</p>
+        </table>
+
+        <!--<input type='text' name="next" value="{{ request.GET.next }}">-->
+        <button type="submit">Login</button>
+            <!--<input type="hidden" name="next" value="{{next}}" />-->
+    </form></div>
+<!--{% endblock %}-->
+</body>
+</html>

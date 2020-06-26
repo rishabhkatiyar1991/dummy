@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}  {% endblock %}
+
+{% block content %}
+
+{% include 'menus.html' %}
+<div  id="content" name="content">
+    <div class="">
+    <form method="post">
+    {% csrf_token %}
+        <div>
+            <!--here start login details-->
+            <div>
+            <table border="0" width="100%" class="topnav">
+                <tr>
+                    <td width="90%">&nbsp; User <b>{{username}}</b> is logged in successfully </td>
+                    <td align="right"><!--<input type="submit" value="Logout">-->
+                    <a href="{% url 'logout' %}">Logout</a> </td>
+                </tr>
+            </table>
+            </div><br>
+            <!-- start form for amounts detail -->
+            <div class="main">
+                <div class="topline">&nbsp;&nbsp;Purchase Poduct List</div><br>
+
+            <table border="1" width="100%">
+                <!--<tr><th>Day:</th><td><input type="text" name="day" value="12/23/2008" required><td></tr>-->
+                <tr class="list_item">
+                    <td width="5%" align="center"><b> S.No</b> </td>
+                    <td width="20%" align="center"><b> Date</b> </td>
+                    <td width="20%" align="center"><b> Username</b> </td>
+                    <td width="20%" align="center"><b>Name</b></td>
+                    <td width="10%" align="center"><b>Price</b></td>
+                    <td width="12%" align="center"><b>Items</b> </td>
+                </tr>
+                {% if solddata %}
+
+                    {% for solddata in solddata %}
+                        <tr>
+                            <td> {{forloop.counter}} </td>
+                            <td>{{solddata.purch_date}}  </td>
+                            <td>{{solddata.purch_username}}  </td>
+                            <td> {{solddata.purch_first_name}} {{solddata.purch_last_name}}</td>
+                            <td>  {{solddata.price}}</td>
+                            <td><img src="{{solddata.pro_images.url}}" alt="images-{{pro_list.first_name}}"
+                            class="img-responsive" height="100" style="width:100%;float: left;"></td>
+                                <!--<input type="text" name="purchase" id="id" value="{{pro_list.id}}" size="8">--></td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="5"> No data</td>
+                </tr>
+                {% endif %}
+
+            </table>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}

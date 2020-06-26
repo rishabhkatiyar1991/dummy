@@ -1,0 +1,126 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %} {% endblock %}
+
+
+{% block content %}
+
+{% include 'menu.html' %}
+<div  id="content" name="content">
+    <div class="">
+    <form method="post">
+    {% csrf_token %}
+        <div>
+            <!--here start login details-->
+            <div>
+            <table border="0" width="100%" class="topnav">
+                <tr>
+                    <td width="90%">&nbsp; is logged in successfully </td>
+                    <td align="right"><!--<input type="submit" value="Logout"> User <b>{{username}}</b>-->
+                    <a href="{% url 'logout' %}">Logout</a> </td>
+                </tr>
+            </table>
+            </div><br>
+
+            <!-- start form for amounts detail -->
+            <div class="main">
+                <div class="topline">&nbsp;&nbsp;Registartion Form</div><br>
+
+                {% if messages %}
+                            <ul class="messages">
+                                {% for msg in messages %}
+                                <li>
+                                    <div class="alert alert-{{msg.level_tag}}" role="alert">
+                                        {{msg.message}}
+                                    </div>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+            <table border="0" width="100%">
+                <!--<tr><th>Day:</th><td><input type="text" name="day" value="12/23/2008" required><td></tr>-->
+                <tr>
+                    <td width="20%"> &nbsp;</td>
+                    <td><label>Session :</label></td>
+                    <td>{{ form.sdate }}</td>
+                </tr>
+                <tr>
+                    <td width="20%"> </td>
+                    <td width="15%" ><label>Course Year :</label> </td>
+                    <td > {{form.courseYear}}</td>
+                </tr>
+                <tr>
+                    <td width="20%"> </td>
+                    <td width="15%" ><label>Registration No :</label> </td>
+                    <td > {{form.regno}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; </td>
+                    <td><label>First Name : </label></td>
+                    <td > {{form.firstname}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; </td>
+                    <td><label>Last Name : </label></td>
+                    <td > {{form.lastname}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; </td>
+                    <td><label>Father Name : </label></td>
+                    <td > {{form.fathername}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; </td>
+                    <td><label>Agent Name : </label></td>
+                    <td > {{form.agentrname}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; </td>
+                    <td><label>Course : </label></td>
+                    <td > {{form.course}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; </td>
+                    <td><label>Type : </label></td>
+                    <td > {{form.amttype}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; </td>
+                    <td><label>Total Fees Amount : </label></td>
+                    <td > {{form.amount}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; </td>
+                    <td><label>Current Fees Amount : </label></td>
+                    <td > {{form.fee}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp; </td>
+                    <td><label>Commission : </label></td>
+                    <td > {{form.commission}}</td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp; </td>
+                    <td ><label>Mobile No : </label></td>
+                    <td > {{form.mobile}}</td>
+                <tr>
+                    <td>&nbsp; </td>
+                    <td><label>Orgnization Name : </label></td>
+                    <td > {{form.orgname}}</td>
+                </tr>
+                    <tr><td colspan="3">&nbsp;</td></tr>
+                <tr>
+                    <td>&nbsp; </td>
+                    <td><label> </label></td>
+                    <td ><input type="submit" class="btn btn-primary"></td>
+                </tr>
+            </table>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}

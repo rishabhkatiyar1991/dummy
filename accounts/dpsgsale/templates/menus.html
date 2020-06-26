@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .grad1 {
+          height: 200px;
+          background-color: #ff9966;
+          background-image: ;
+        }
+        .sidenav  {
+            height:100%;
+            width:16%;
+            position: absolute;
+            z-index:1;
+            top:70px;
+            left:17px;
+            background-color:#ff9966;
+            overflow-x: hidden;
+            padding-top:15px;
+        }
+
+        .sidenav a{
+            padding:6px 8px, 6px, 16px;
+            text-decoration: none;
+            font-size:25px;
+            color: #000000;
+            display: block;
+        }
+
+        .sidenav a:hover{
+            color:#f1f1f1;
+        }
+
+        .main{
+            margin-left:19%;
+            paddding-top: 100px;
+            height:100%;
+
+
+        }
+        .rightside{
+            margin-right:1%;
+            paddding: 0px 1px;
+        }
+
+
+         .topnav {
+            width:100%
+            overflow: hidden;
+            background-color:#ff9966;
+            color: #000000;
+            font-size:17px;
+        }
+
+        .topnav a {
+          float: left;
+          color: #000000;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size:20px;
+        }
+
+        .topline {
+            width:100%
+            overflow: hidden;
+            background-color:#ff9966;
+            color: #FDFEFE;
+            font-size:20px;
+        }
+
+        .list_item {
+            background-color:#ff9966;
+            color: #FDFEFE;
+            font-size:20px;
+            border-radius: 25px;
+            font-family: Arial;
+            position: relative;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="sidenav">
+        <a href="{% url 'dashbord' %}">Dashbord</a>
+        <a href="{% url 'registration' %}">Register Here</a>
+        <a href="{% url 'reg_list' %}">Register List</a>
+        <a href="{% url 'product' %}">Product</a>
+        <a href="{% url 'product_list' %}">Product List</a>
+        <a href="{% url 'sold_productlist' %}">Sold Product List</a>
+    </div>
+    <div id="content" name="content" class="main">
+        <div class="">
+            {% block content %}
+            {% endblock  %}
+        </div>
+    </div>
+
+</body>
+</html>

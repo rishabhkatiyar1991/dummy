@@ -1,0 +1,66 @@
+{% if is not request.session['username']  %}
+
+{% extends 'base.html' %}
+
+{% block title %}  {% endblock %}
+
+{% block content %}
+
+{% include 'menu.html' %}
+<div  id="content" name="content">
+    <div class="">
+    <form method="post">
+    {% csrf_token %}
+        <div>
+            <!--here start login details-->
+            <div>
+            <table border="0" width="100%" class="topnav">
+                <tr>
+                    <td width="90%">&nbsp; User <b>{{username}}</b> is logged in successfully </td>
+                    <td align="right"><!--<input type="submit" value="Logout">-->
+                    <a href="{% url 'logout' %}">Logout</a> </td>
+                </tr>
+            </table>
+            </div><br>
+            <!-- start form for amounts detail -->
+            <div class="main">
+                <div class="topline">&nbsp;&nbsp;Candidate Fees Details</div><br>
+                {% if messages %}
+                            <ul class="messages">
+                                {% for msg in messages %}
+                                <li>
+                                    <div class="alert alert-{{msg.level_tag}}" role="alert">
+                                        {{msg.message}}
+                                    </div>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+            <table border="1" width="100%">
+                <!--<tr><th>Day:</th><td><input type="text" name="day" value="12/23/2008" required><td></tr>-->
+                <tr>
+                    <td width="20%" align="center"><b>Session</b> </td>
+                    <td width="20%" align="center"><b>Name</b></td>
+                    <td width="20%" align="center"><b>Father Name</b></td>
+                    <td width="20%" align="center"><b>Course</b></td>
+                    <td width="20%" align="center"><b>details</b></td>
+                </tr>
+
+
+                        <tr>
+                            <td width="20%">{{stud_details.session_time}} </td>
+                            <td width="20%" >{{stud_details.id}} {{stud_details.first_name}} {{stud_details.last_name}}</td>
+                            <td width="20%"> {{stud_details.father_name}}</td>
+                            <td width="20%"> {{stud_details.course}}</td>
+                            <td width="20%">{{stud_details.id}} </td>
+                        </tr>
+
+
+
+            </table> <br>
+                        </div>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}

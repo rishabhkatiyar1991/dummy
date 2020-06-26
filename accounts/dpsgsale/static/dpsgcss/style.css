@@ -1,0 +1,13 @@
+.loginimg
+{
+background-image:url('{{ STATIC_URL }}imagesss/dpsgsales.JPG');
+background-repeat:no-repeat;
+background-size:100%;
+}
+
+#bg{
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
