@@ -1,4 +1,4 @@
-grocry=["Harpic", "vim bar", "deodrant", "banana","Lollypop", 65]
+grocry=["Harpic", "vim bar", "deodrant", "banana","Lollypop", 65,676]
 # gr = grocry.copy() #similar to print()
 #print(grocry)
 #print(gr)
